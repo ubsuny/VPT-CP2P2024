@@ -1,26 +1,22 @@
 {
-  "name": "Python Data Analysis for Video Particle Tracking",
-  "dockerFile": "Dockerfile",
-
-  "extensions": [
-    "ms-python.python",
-    "ms-python.vscode-pylance"
-  ],
-
+  "name": "Python Development",
+  "image": "python:3.9",
   "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
     "python.pythonPath": "/usr/local/bin/python",
-    "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.formatting.autopep8Path": "/usr/local/bin/autopep8",
+    "python.formatting.blackPath": "/usr/local/bin/black",
     "python.formatting.provider": "black"
   },
-
-  "runArgs": [
-    "--cap-add=SYS_PTRACE",
-    "--security-opt",
-    "seccomp=unconfined"
+  "extensions": [
+    "ms-python.python",
+    "ms-python.vscode-pylint",
+    "ms-python.black-formatter"
   ],
-
-  "postCreateCommand": "pip install -r requirements.txt",
-
-  "remoteUser": "vscode"
+  "forwardPorts": [],
+  "postCreateCommand": "pip install --no-cache-dir -r requirements.txt",
+  "workspaceFolder": "/workspaces/LLPS-ProteinRNA_Condensates-CP2P2024",
+  "remoteUser": "root"
 }
