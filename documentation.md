@@ -17,7 +17,7 @@ def calculate_area(X_value: float, Y_value: float) -> float:
     return X_value * Y_value
 
 ```
-In the above example X_value: float and Y_value: float indicate that both length and width parameters should be of type float.
+In the above example X_value: float and Y_value: float indicate that both parameters should be of type float.
 
 -> float specifies that the return value of the calculate_area function should be of type float.
 ```python
