@@ -36,6 +36,3 @@ def add_numbers(x: int, y: int) -> int:
 ```
 Example of integer data types in python annotation
 
-# Generate Random Numbers
-The project that I am working on is based on the motion of bead particles on the glycerol solution. Beads of definite size  1 micron meter are allowed to moved on the glycerol solution. The motion of these beads are observed by using the fluorescent microscope and tracked by using the ImageJ software which gives us the position of the beads for every pixels captured. It is evident that the motion of these beads follows random motion and the position are random however, there is no need to generate random number for the project as I have X and Y coordinates and time interval available for the beads motion tracked.
-
