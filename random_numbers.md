@@ -1,0 +1,44 @@
+For the experiment using video particle tracking I have considered the motion of bead particles in glycerol soolution. Bead particles are used to track motion by using 
+fluoescence microscope. Bead of size 1 micro meter are placed in 90 percent glycerol solution and their motion is observed by using microscope under 40X resolution. When 
+the beads are allowed to move in glycerol solution their motion is tracked by using ImageJ software for everypixel up to 1000 pixel and their motion is recorded in terms of 
+X and Y coordinates along with time elapsed. Here the motion of bead particles execute random/ Brownian motion and to simulate the random motion of bead particles,
+we can use built-in functions to generate random numbers that represent the displacement of the particles in each time step. An example of  Python code demonstrating 
+how we can generate random motion for the bead particles is shown below:
+```python
+import numpy as np
+def generate_random_displacement(sigma, num_steps):
+"""
+    Generate random motion for bead particles.
+
+    Args:
+        num_particles (int): Number of bead particles.
+        num_steps (int): Number of time steps.
+        sigma (float): Standard deviation of random displacement.
+
+    Returns:
+        tuple: Tuple containing X and Y coordinates for each particle over time.
+    """
+    return np.random.normal(scale=sigma, size=num_steps)
+
+num_particles = 1  # Number of bead particles
+num_steps = 1000  # Number of time steps
+sigma = 1  # Standard deviation of random displacement
+
+x_coordinates = np.zeros((num_particles, num_steps)) # Initialize arrays to store X and Y coordinates
+y_coordinates = np.zeros((num_particles, num_steps))
+
+for i in range(num_particles):
+    x_displacements = generate_random_displacement(sigma, num_steps) # Generate random motion for each particle
+    y_displacements = generate_random_displacement(sigma, num_steps)
+    
+    x_coordinates[i] = np.cumsum(x_displacements)  # Calculate X and Y coordinates
+    y_coordinates[i] = np.cumsum(y_displacements)
+
+print("X coordinates for the first few time steps:") # Print the first few coordinates for demonstration
+print(x_coordinates[:, :5])
+print("\nY coordinates for the first few time steps:")
+print(y_coordinates[:, :5])
+
+```
+
+
