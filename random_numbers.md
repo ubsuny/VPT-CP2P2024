@@ -40,5 +40,7 @@ print("\nY coordinates for the first few time steps:")
 print(y_coordinates[:, :5])
 
 ```
+ In this code we uses numpy library to generate random numbers which follows a normal distribution with mean 0 and standard deviation sigma (given) for each time step. The function generate_random_displacement generates these random displacements, and the cumulative sum of these displacements gives the coordinates of the particles over time. In the context of simulating particle motion, each displacement value at a particular time step indicates how much the particle has moved from its previous position. Thus, cumulative sum (np.cumsum) is used to add up all the individual displacements encountered by the particle up to that time step.
+The code is a basic example of how random motion can be simulated. Depending on the specifics of  experiment and the behavior of the particles, we need to adjust parameters and incorporate additional factors into our simulation for random motion.
 
 
