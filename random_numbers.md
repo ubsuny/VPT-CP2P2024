@@ -6,6 +6,7 @@ we can use built-in functions to generate random numbers that represent the disp
 how we can generate random motion for the bead particles is shown below:
 ```python
 import numpy as np
+import matplotlib.pyplot as plt
 def generate_random_displacement(sigma, num_steps):
 """
     Generate random motion for bead particles.
@@ -34,12 +35,23 @@ for i in range(num_particles):
     x_coordinates[i] = np.cumsum(x_displacements)  # Calculate X and Y coordinates
     y_coordinates[i] = np.cumsum(y_displacements)
 
-print("X coordinates for the first few time steps:") # Print the first few coordinates for demonstration
+print("X coordinates for the first few time steps:") # Print the first few coordinates for demonstration.
 print(x_coordinates[:, :5])
-print("\nY coordinates for the first few time steps:")
+print("Y coordinates for the first few time steps:")
 print(y_coordinates[:, :5])
+mu = 0  # Mean of the Gaussian distribution 
+x = np.linspace(-5, 5, 1000)
+plt.plot(x, 1/(sigma * np.sqrt(2 * np.pi)) * np.exp( - (x - mu)**2 / (2 * sigma**2) ), linewidth=2, color='r') 
+plt.title('Plot of Random Displacements with Gaussian Curve') 
+plt.xlabel('Displacement')
+plt.ylabel('Probability Density')
+plt.grid(True)
+plt.show()
 
 ```
+<img width="1078" alt="gaussian_curve" src="https://github.com/ubsuny/VPT-CP2P2024/assets/72980895/618350a4-c3d1-43d2-882b-87f68a7f5fda">
+
+ 
  In this code we uses numpy library to generate random numbers which follows a normal distribution with mean 0 and standard deviation sigma (given) for each time step. The function generate_random_displacement generates these random displacements, and the cumulative sum of these displacements gives the coordinates of the particles over time. In the context of simulating particle motion, each displacement value at a particular time step indicates how much the particle has moved from its previous position. Thus, cumulative sum (np.cumsum) is used to add up all the individual displacements encountered by the particle up to that time step.
 The code is a basic example of how random motion can be simulated. Depending on the specifics of  experiment and the behavior of the particles, we need to adjust parameters and incorporate additional factors into our simulation for random motion.
 
