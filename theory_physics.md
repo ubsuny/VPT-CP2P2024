@@ -16,14 +16,14 @@ in a VPT experiment. MSD measures how much a particle’s position changes over 
 starting point[^2]. It is commonly used to quantify the spatial extent of random mobility and a way 
 to study the dynamical properties of the system.
 
-We determine the viscosity of 70$%$ glycerol solution by observing and tracking the motion of bead particles 
+We  will determine the viscosity of 70% glycerol solution by observing and tracking the motion of bead particles 
 measuring 4.22 micrometers in diameter using video microscopy. The recorded 
-movements of the bead particles were enhanced through optimization techniques such as 
+movements of the bead particles will be  enhanced through optimization techniques such as 
 tracking, filtering, and linking in ImageJ software, with specific parameters tailored to the 
-analysis. We collected three different videos with different number (16, 19, & 23) of tracks for 
-analysis. The trajectories of particles were graphically analyzed using python software tools. 
+analysis. We  will collect three different videos with different number (16, 19, & 23) of tracks for 
+analysis. The trajectories of particles will be graphically analyzed using python software tools. 
 Plot of MSD as a function of time allows us to determine the diffusivity constant, from which 
-the viscosity of 70% glycerol solution was estimated using Stoke Einstein’s relation.
+the viscosity of 70% glycerol solution will be estimated using Stoke Einstein’s relation.
 
 # Physics used for the project
 Video Particle tracking analysis to estimate the viscosity of glycerol solution is based on the diffusive motion of bead particles in the glycerol solution. Trajectories of bead particles are observed and analyzed based on various techniques; The movement of the center of mass of bead particles are determined by calculating the position vector R at each time interval based on the velocities of the individual particles[^3].
