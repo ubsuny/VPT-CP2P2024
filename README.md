@@ -4,5 +4,10 @@ Video Particle Tracking is a passive micro rheological approach used to study th
 Mean Square Displacement(MSD) calculated as a function of lag time is a statistically relevant result that can be estimated from the motion of bead particles collected over numbers of frames in a VPT experiment. MSD measures how much a particle’s position changes over time compared to its starting point2. It is commonly used to quantify the spatial extent of random mobility and a way to study the dynamical properties of the system.
 
 We will determine the viscosity of 70% glycerol solution by observing and tracking the motion of bead particles measuring 4.22 micrometers in diameter using video microscopy. The recorded movements of the bead particles will be enhanced through optimization techniques such as tracking, filtering, and linking in ImageJ software, with specific parameters tailored to the analysis. We will collect three different videos with different number (16, 19, & 23) of tracks for analysis. The trajectories of particles will be graphically analyzed using python software tools. Plot of MSD as a function of time allows us to determine the diffusivity constant, from which the viscosity of 70% glycerol solution will be estimated using Stoke Einstein’s relation.
-[click here to view the physics related to the study]([)](https://github.com/ubsuny/VPT-CP2P2024/blob/main/theory_physics.md#physics-used-for-the-project)
+
+[Physics related to the study is explained here.](https://github.com/ubsuny/VPT-CP2P2024/blob/main/theory_physics.md#physics-used-for-the-project)
+
+[Data tyoes to be included for analysis using python tools is included here.](https://github.com/ubsuny/VPT-CP2P2024/blob/main/documentation.md#data-types)
+
+[Example for using Random numbers is included here.](random_numbers.md)
 
