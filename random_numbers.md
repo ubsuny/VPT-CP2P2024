@@ -94,6 +94,106 @@ def calculate_msd_numpy(xpos, ypos, frametime, minframe):
     # Return the time intervals and their corresponding MSD values
     return msd[:, 0], msd[:, 1]
 ```
+Futher code implementing TensorFlow operations to efficiently calculate the Mean Squared Displacement (MSD) for a set of particle positions over time, leveraging TensorFlow's computational graph and automatic differentiation capabilities is given below:
+```python
+import tensorflow as tf
+
+# Assuming xpos and ypos are lists or arrays containing the x and y positions over time
+# Convert xpos and ypos to TensorFlow constants to be used in the TensorFlow graph
+xpos_tf = tf.constant(xpos, dtype=tf.float32)
+ypos_tf = tf.constant(ypos, dtype=tf.float32)
+
+# Define a function to calculate MSD using TensorFlow operations
+def calculate_msd_tensorflow(xpos, ypos, frametime, minframe):
+    # Get the total number of data points
+    nData = tf.size(xpos)
+    # Calculate the number of time intervals for MSD calculation, half the number of data points
+    numberOfdeltaT = tf.cast(nData / 2, tf.int32)
+    # Create a TensorArray to store the MSD calculations for each time interval
+    msd = tf.TensorArray(dtype=tf.float32, size=numberOfdeltaT, dynamic_size=False)
+
+    # Define a sub-function to compute squared displacement for each time interval
+    def compute_displacement(delta_t, msd):
+        # Calculate the difference in positions for the given time interval
+        deltax = xpos[1 + delta_t:nData - 1] - xpos[1:nData - 1 - delta_t]
+        deltay = ypos[1 + delta_t:nData - 1] - ypos[1:nData - 1 - delta_t]
+        # Square the differences to get squared displacement
+        squared_displacement = tf.square(deltax) + tf.square(deltay)
+        # Average the squared displacement to get the mean squared displacement
+        mean_squared_displacement = tf.reduce_mean(squared_displacement)
+        # Store the mean squared displacement in the TensorArray
+        msd = msd.write(delta_t-1, (frametime * tf.cast(delta_t, tf.float32), mean_squared_displacement))
+        # Move to the next time interval
+        return delta_t + 1, msd
+
+    # Execute the while_loop to fill the TensorArray with MSD values for each time interval
+    _, msd_final = tf.while_loop(
+        cond=lambda delta_t, _: delta_t <= numberOfdeltaT,
+        body=compute_displacement,
+        loop_vars=(tf.constant(1), msd)
+    )
+
+    # Extract the results from the TensorArray and stack them into a single tensor
+    msd_result = msd_final.stack()
+    # Return the final tensor of MSD values
+    return msd_result
+
+# Use the function to calculate MSD
+msd_tf = calculate_msd_tensorflow(xpos_tf, ypos_tf, frametime, minframe)
+# Convert the TensorFlow tensor back to a NumPy array for further analysis or usage
+msd_tf = msd_tf.numpy()
+```
+The code above using NumPy and TensorFlow serve the same purpose of calculating the Mean Squared Displacement (MSD) for a set of particle positions over time. However, they differ significantly in terms of implementation and underlying execution. The TensorFlow code adds several steps and concepts specific to TensorFlow's execution model, such as converting data to TensorFlow constants, using TensorFlow operations, creating a TensorArray for dynamic storage, and leveraging TensorFlow's computational graph for efficient computation and GPU/TPU acceleration.
+Further to compare the execution times of the NumPy and TensorFlow versions of the MSD calculation and also to evaluate the differences between their outputs to ensure consistency and accuracy, following code is implemented.
+```python
+import time
+
+# NumPy version comparison
+start_time = time.time()
+time_np, msd_np = calculate_msd_numpy(xpos, ypos, frametime, minframe)
+numpy_duration = time.time() - start_time
+print(f"NumPy version took {numpy_duration:.4f} seconds.")
+
+# TensorFlow version comparison
+# Ensure xpos_tf and ypos_tf are TensorFlow tensors
+start_time = time.time()
+msd_tf = calculate_msd_tensorflow(xpos_tf, ypos_tf, frametime, minframe)
+msd_tf = msd_tf.numpy()  # Convert the result back to a NumPy array for comparison
+tensorflow_duration = time.time() - start_time
+print(f"TensorFlow version took {tensorflow_duration:.4f} seconds.")
+
+# Comparing outputs
+# Assuming the first column is time and the second is MSD in both outputs
+differences = np.abs(msd_np - msd_tf[:, 1])  # Comparing MSD values directly
+print(f"Maximum difference between NumPy and TensorFlow MSD outputs: {np.max(differences)}")
+
+```python
+import time
+
+# NumPy version comparison
+start_time = time.time()
+time_np, msd_np = calculate_msd_numpy(xpos, ypos, frametime, minframe)
+numpy_duration = time.time() - start_time
+print(f"NumPy version took {numpy_duration:.4f} seconds.")
+
+# TensorFlow version comparison
+# Ensure xpos_tf and ypos_tf are TensorFlow tensors
+start_time = time.time()
+msd_tf = calculate_msd_tensorflow(xpos_tf, ypos_tf, frametime, minframe)
+msd_tf = msd_tf.numpy()  # Convert the result back to a NumPy array for comparison
+tensorflow_duration = time.time() - start_time
+print(f"TensorFlow version took {tensorflow_duration:.4f} seconds.")
+
+# Comparing outputs
+# Assuming the first column is time and the second is MSD in both outputs
+differences = np.abs(msd_np - msd_tf[:, 1])  # Comparing MSD values directly
+print(f"Maximum difference between NumPy and TensorFlow MSD outputs: {np.max(differences)}")
+```
+
+
+
+
+
 
 
 
