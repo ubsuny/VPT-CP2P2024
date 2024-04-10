@@ -54,5 +54,46 @@ plt.show()
  
  In this code we uses numpy library to generate random numbers which follows a normal distribution with mean 0 and standard deviation sigma (given) for each time step. The function generate_random_displacement generates these random displacements, and the cumulative sum of these displacements gives the coordinates of the particles over time. In the context of simulating particle motion, each displacement value at a particular time step indicates how much the particle has moved from its previous position. Thus, cumulative sum (np.cumsum) is used to add up all the individual displacements encountered by the particle up to that time step.
 The code is a basic example of how random motion can be simulated. Depending on the specifics of  experiment and the behavior of the particles, we need to adjust parameters and incorporate additional factors into our simulation for random motion.
+# Use of Tensorflow 
+Tensor flow is the open source machine learning framework used designed to simplify the process of building, training, and deploying machine learning models, particularly deep learning models. It allows users to define and execute computational graphs easily, automatic differentation, helps users visualize and monitor the training process, model architecture, and performance metrics. Although the datas obtained for video particle tracking are computed by using numpy library, tensor flow is used to estimate the mean square displacement of bead particles to see the effectiveness of the tensorflow for my project.
+
+Here is the code that calculates the Mean Squared Displacement (MSD) of particles based on their positions (xpos and ypos) over time, using NumPy for efficient numerical computations.
+
+```python
+import numpy as np
+
+# Define a function to calculate the Mean Squared Displacement (MSD) using NumPy
+def calculate_msd_numpy(xpos, ypos, frametime, minframe):
+    # Initialize an empty list to store MSD values (not used in this function, so could be removed)
+    msds = []
+
+    # Calculate the total number of data points
+    nData = len(xpos)
+
+    # Determine the number of delta T intervals for which MSD will be calculated, usually half the data length
+    numberOfdeltaT = int(nData / 2)
+
+    # Initialize a zero array to store the time intervals and corresponding MSD values
+    msd = np.zeros((numberOfdeltaT, 2))
+
+    # Loop over all delta T intervals to calculate MSD for each
+    for dt in range(1, numberOfdeltaT + 1):
+        # Calculate the difference in x and y positions for particles separated by time interval dt
+        deltax = xpos[dt:nData] - xpos[:nData - dt]
+        deltay = ypos[dt:nData] - ypos[:nData - dt]
+
+        # Calculate the squared displacement for each pair of points
+        sD = deltax**2 + deltay**2
+
+        # Store the current time interval in the first column
+        msd[dt-1, 0] = frametime * dt
+
+        # Calculate and store the mean squared displacement for the current time interval in the second column
+        msd[dt-1, 1] = np.mean(sD)
+
+    # Return the time intervals and their corresponding MSD values
+    return msd[:, 0], msd[:, 1]
+```
+
 
 
