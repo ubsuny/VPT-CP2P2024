@@ -166,29 +166,9 @@ print(f"TensorFlow version took {tensorflow_duration:.4f} seconds.")
 # Assuming the first column is time and the second is MSD in both outputs
 differences = np.abs(msd_np - msd_tf[:, 1])  # Comparing MSD values directly
 print(f"Maximum difference between NumPy and TensorFlow MSD outputs: {np.max(differences)}")
-
-```python
-import time
-
-# NumPy version comparison
-start_time = time.time()
-time_np, msd_np = calculate_msd_numpy(xpos, ypos, frametime, minframe)
-numpy_duration = time.time() - start_time
-print(f"NumPy version took {numpy_duration:.4f} seconds.")
-
-# TensorFlow version comparison
-# Ensure xpos_tf and ypos_tf are TensorFlow tensors
-start_time = time.time()
-msd_tf = calculate_msd_tensorflow(xpos_tf, ypos_tf, frametime, minframe)
-msd_tf = msd_tf.numpy()  # Convert the result back to a NumPy array for comparison
-tensorflow_duration = time.time() - start_time
-print(f"TensorFlow version took {tensorflow_duration:.4f} seconds.")
-
-# Comparing outputs
-# Assuming the first column is time and the second is MSD in both outputs
-differences = np.abs(msd_np - msd_tf[:, 1])  # Comparing MSD values directly
-print(f"Maximum difference between NumPy and TensorFlow MSD outputs: {np.max(differences)}")
 ```
+It is observed that the NumPy version took 0.0437 seconds, TensorFlow version took 2.3097 seconds.
+Maximum difference between NumPy and TensorFlow MSD outputs is 0.001569176552128515.
 
 
 
