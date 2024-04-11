@@ -10,5 +10,6 @@ We will determine the viscosity of 70% glycerol solution by observing and tracki
 [Data tyoes to be included for analysis using python tools is included here.](https://github.com/ubsuny/VPT-CP2P2024/blob/main/documentation.md#data-types)
 
 [Example for using Random numbers is included here.](random_numbers.md)
-[Use of tensorflow and comparison of execution time is included here ]()
+
+[Use of tensorflow and comparison of execution time is included here ](https://github.com/ubsuny/VPT-CP2P2024/blob/main/random_numbers.md#use-of-tensorflow)
 
