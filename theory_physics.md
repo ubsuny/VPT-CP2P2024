@@ -92,8 +92,9 @@ earlier estimated value (9 +/- 3 pa.s) at temperature 293K. The difference in
 viscosity value may be attributed to factors such as precise temperature control,
 accuracy in sample preparation, analysis and observation, etc.
  These findings provide a foundational
-framework for delving deeper into the dynamic characteristics of condensates like elasticity, actvation energye, etc..
+framework for delving deeper into the dynamic characteristics of condensates like elasticity, actvation energye, etc.
 
+# References
 [^1]: [J. A. McGlynn, N. Wu, and K. M. Schultz, Journal of Applied Physics 127, 201101 (2020)] (https://pubs.aip.org/aip/jap/article- pdf/doi/10.1063/5.0006122/15245133/201101 1 online.pdf .)
 [^2]: [D. Frenkel and B. Smit,Understanding Molecular Simulation, Vol. 1 (Elsevier Science Technology, United States, 2001).]
 [^3]: [H. Qian, M. P. Sheetz, and E. L. Elson, Biophys. J. 60, 910 (1991).]
