@@ -55,11 +55,22 @@ to identify local maxima as detection spots. These spots are filtered based
 on quality and proximity, with a signal to noise ratio threshold. A median
 filter is used to mitigate extreme pixel intensities while retaining image details.
 Particle-linking consists of two stages; link particles to form track segments
-between frames, then closing gaps between segments[6]. Finally, the trajectory
+between frames, then closing gaps between segments[^6]. Finally, the trajectory
 data is saved in an XML format for further analysis using Python tools.
 # Results And Discussion
+Condensates which are formed by liquid liquid phase seperation of multivalent proteins in association of nucleic acid shows viscous nature. To analyze the viscosity of these condensates we employ video particle method and tracked the motion of bead particles in the condensates. The bead particles exhibit brownian motion and on plotting the mean square displacemnt as a function of lag time and fitting the msd plot we can estimate the viscosity value of the condensates taken for study. First we observe the trajectories of the bead particles tracked which cleary shows random brownian motion.
 
+![T90-RG5 PK_1_MMStack_Pos0_Tracks_1individual track](https://github.com/ubsuny/VPT-CP2P2024/assets/72980895/4486120b-3c8f-4b15-ada8-148a317caddb)
 
+Further we observe the trajectories from X and Y com of central of mass vector of the tracked bead particles. These plots are used to demonstrate how the motion of bead particles can captured by increasing frame. It involves locating the central of brightness of bead particles in a frame and the process is repeated for successive frame. By doing so the particles in one frame can be tracked in successive frame with the position coordinates indicaticating the central of mass vector of the bead in successive frame. The two plots gives the trajectory for X component and Y component of central of mass vector for bead plotted with increasing frame.
+
+![T90-RG5 PK_1_MMStack_Pos0_Tracks_1Xcom](https://github.com/ubsuny/VPT-CP2P2024/assets/72980895/81e16ec4-4d28-4a3c-8865-aac762afd392)![T90-RG5 PK_1_MMStack_Pos0_Tracks_1Ycom](https://github.com/ubsuny/VPT-CP2P2024/assets/72980895/7465ff2e-c8fd-476e-a503-3beef7bf45c2)
+
+The trajectories for all the bead particles tracked are given by the plot below:
+
+![T90-RG5 PK_1_MMStack_Pos0_Tracks_1tracks](https://github.com/ubsuny/VPT-CP2P2024/assets/72980895/5f5bf535-8057-4bf9-bfb2-0838e124a8a5)
+
+Mean Square displacement calculated from the position of bead particles at different time interval is used to analyze the motion of bead particles and to calculate the diffusion coefficient values. The MSD plot for all the tracked beats shows linear nature which shows that the motion of the bead particles is brownian. Further the fitted plot of MSD as a function of lag time gives the value of diffusion coefficient and diffusibility constant value. We observe that the value of diffusion coefficient is found to be 
 
 # References
 [^1]: [J. A. McGlynn, N. Wu, and K. M. Schultz, Journal of Applied Physics 127, 201101 (2020)] (https://pubs.aip.org/aip/jap/article- pdf/doi/10.1063/5.0006122/15245133/201101 1 online.pdf .)
@@ -67,7 +78,10 @@ data is saved in an XML format for further analysis using Python tools.
 [^3]: [H. Qian, M. P. Sheetz, and E. L. Elson, Biophys. J. 60, 910 (1991).]
 [^4]: [I. Alshareedah, G. M. Thurston, and P. R. Banerjee, Biophys. J. 120, 1161
 (2021).]
-[^5]: [I. Alshareedah, T. Kaur, and P. R. Banerjee, in Methods in Enzymology, Methods in enzymology (Elsevier, 2021) pp. 143–183.]
+[^5]: [I. Alshareedah, T. Kaur, and P. R. Banerjee, in Methods in Enzymology, Methods in enzymology (Elsevier, 2021) pp. 143–183.
+[^6]:[J.-Y. Tinevez, N. Perry, J. Schindelin, G. M. Hoopes, G. D. Reynolds, E. La-
+plantine, S. Y. Bednarek, S. L. Shorte, and K. W. Eliceiri, Methods 115, 80
+(2017).]
 
 
 
