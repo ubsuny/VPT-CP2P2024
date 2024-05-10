@@ -70,9 +70,30 @@ The trajectories for all the bead particles tracked are given by the plot below:
 
 ![T90-RG5 PK_1_MMStack_Pos0_Tracks_1tracks](https://github.com/ubsuny/VPT-CP2P2024/assets/72980895/5f5bf535-8057-4bf9-bfb2-0838e124a8a5)
 
-Mean Square displacement calculated from the position of bead particles at different time interval is used to analyze the motion of bead particles and to calculate the diffusion coefficient values. The MSD plot for all the tracked beats shows linear nature which shows that the motion of the bead particles is brownian. Further the fitted plot of MSD as a function of lag time gives the value of diffusion coefficient and diffusibility constant value. We observe that the value of diffusion coefficient is found to be 
+Mean Square displacement calculated from the position of bead particles at different time interval is used to analyze the motion of bead particles and to calculate the diffusion coefficient values. The MSD plot for all the tracked beats shows linear nature which shows that the motion of the bead particles is brownian. Further the fitted plot of MSD as a function of lag time gives the value of diffusion coefficient and diffusibility constant value. We observe that the value of diffusion coefficient is found to be  2.5321e-04 +/- 9.6272e-07m^2/s and the value of diffusibility constant is 0.98361469 +/- 9.3848e-04. The diffusibity constant close to one corroborate the fact that the beads particles exhibit random Brownian motion.
+![T90-RG5 PK_1_MMStack_Pos0_Tracks_1MSDs_all](https://github.com/ubsuny/VPT-CP2P2024/assets/72980895/2cd3b92d-4f50-4827-ae5f-3668ffae7391)![T90-RG5!![T90-RG5 PK_2_MMStack_Pos0_Tracks_2MSDfit](https://github.com/ubsuny/VPT-CP2P2024/assets/72980895/423783f2-606d-421f-87c7-62a87a9cc870)
 
-# References
+Further on using the value of diffusion coefficient, Viscosity of condensates is estimated using Stokes Einstein relation. The viscosity value is found to be 7.975 pa.s (from two different imaging series) which is close to the value of (9 +/- 3 pa.s.) estimated for the same sample at temperature 293K. There difference in the value estimated might be due to the fewer frames used for analysis( 972 out of 1000 frames) because of memory limitation in local computer. Further the estimated value highly depend on the precision of experiment leading to the deviation of calculated value. Considering the possible error I took two different imaging series and calculated the average value obtained by analyzing these different tracks.
+
+# Conclusion
+Study of viscosity of T90/RGRGG_5 condenstaes is carried out with bead particles
+submerged in buffer solution and is observed under florescence microscope
+with 100X objective lens. ImageJ software tools were utilized to track and filter
+a series of images to optimize the data for subsequent analysis of the random
+motion exhibited by bead particles. It is observed that the bead particles exhibit
+random diffusive motion from the trajectories of individual bead particles which
+is further corroborated by the plot of Xcom and Ycom of center of mass of bead
+particles at each time point. Further the MSD plot with lag time shows linear
+trend which allows us to estimate the diffusion coefficient: the rate of material
+transport as a result of the random thermal movement of particles. Using the
+value of diffusion coefficient the average value of viscosity calculated form three
+different videos tracked is 7.97 pa.s. This value is comparable with
+earlier estimated value (9 +/- 3 pa.s) at temperature 293K. The difference in
+viscosity value may be attributed to factors such as precise temperature control,
+accuracy in sample preparation, analysis and observation, etc.
+ These findings provide a foundational
+framework for delving deeper into the dynamic characteristics of condensates like elasticity, actvation energye, etc..
+
 [^1]: [J. A. McGlynn, N. Wu, and K. M. Schultz, Journal of Applied Physics 127, 201101 (2020)] (https://pubs.aip.org/aip/jap/article- pdf/doi/10.1063/5.0006122/15245133/201101 1 online.pdf .)
 [^2]: [D. Frenkel and B. Smit,Understanding Molecular Simulation, Vol. 1 (Elsevier Science Technology, United States, 2001).]
 [^3]: [H. Qian, M. P. Sheetz, and E. L. Elson, Biophys. J. 60, 910 (1991).]
@@ -82,6 +103,7 @@ Mean Square displacement calculated from the position of bead particles at diffe
 [^6]:[J.-Y. Tinevez, N. Perry, J. Schindelin, G. M. Hoopes, G. D. Reynolds, E. La-
 plantine, S. Y. Bednarek, S. L. Shorte, and K. W. Eliceiri, Methods 115, 80
 (2017).]
+
 
 
 
