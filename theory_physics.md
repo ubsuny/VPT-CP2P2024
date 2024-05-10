@@ -44,7 +44,11 @@ Using the value of diffusion coefficient estimated by fitting the MSD plot, visc
 <img width="893" alt="Equation_4" src="https://github.com/ubsuny/VPT-CP2P2024/assets/72980895/9f93f44b-6768-4bd9-b894-3f88084cad04">
 
 Where R is the particle radius, $k_B$ is the Boltzmann coefficient, and T is the temperature in Kelvin.
+# Sample Preparation
 
+Sample was prepared by adding 1$\mu$l of buffer solution formed by adding equal amount of Nacl, DTT and Mops.  0.5$\mu$l of 1000X diluted beads of size 0.2$\mu$m are added to the solution. To form condensates single stranded DNA molecules of 90 nucleotides chain of volume 0.80$\mu$l is added to the buffer and bead solution, on which RGRGG$_5$ polypeptides of volume 0.63$\mu$l is added to it. Finally 2.07$\mu$l of water is added and all the solution is mixed well. The solution prepared is transfered to cover slip covered with glass slide with three layer of spacer inorder to prevent sample from wetting the glass surface. Further mineral oil is added to it so that the sample won't evaporate. 
+The sample is then observed under epifluorescence microscope under 100X objective lens with immesrsion oil and the motion of beads particles are tracked. I tracked 972 frames for 100s and these tracked particles are further filtered using the trackmate tools of ImageJ. The xml file generated using ImageJ software is further analyzed using python software tools. The code and plots obtained after analysis are shown here.
+# Results And Discussion
 # References
 [^1]: [J. A. McGlynn, N. Wu, and K. M. Schultz, Journal of Applied Physics 127, 201101 (2020)] (https://pubs.aip.org/aip/jap/article- pdf/doi/10.1063/5.0006122/15245133/201101 1 online.pdf .)
 [^2]: [D. Frenkel and B. Smit,Understanding Molecular Simulation, Vol. 1 (Elsevier Science Technology, United States, 2001).]
